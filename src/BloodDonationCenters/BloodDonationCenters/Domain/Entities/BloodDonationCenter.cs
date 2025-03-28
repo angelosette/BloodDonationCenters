@@ -14,9 +14,9 @@ public record BloodDonationCenter
     public string Address { get; set; }
     public double Latitude { get; set; }
     public double Longitude { get; set; }
-    public string Phone { get; set; }
-    public string Email { get; set; }
-    public string Website { get; set; }
+    public string? Phone { get; set; }
+    public string? Email { get; set; }
+    public string? Website { get; set; }
     public DateTime LastUpdate { get; set; }
 
     [JsonIgnore]

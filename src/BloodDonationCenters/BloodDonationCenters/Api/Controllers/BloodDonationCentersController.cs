@@ -17,7 +17,7 @@ public class BloodDonationCentersController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetBloodDonationCenters([FromQuery] string? country, [FromQuery] string? city)
+    public async Task<IActionResult> GetBloodDonationCenters([FromQuery] string? country = null, [FromQuery] string? city = null)
     {
         var bloodDonationCenters = await _bloodDonationService.GetAllCenters(country, city);
         return Ok(bloodDonationCenters);
@@ -34,7 +34,7 @@ public class BloodDonationCentersController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> AddBloodDonationCenter([FromBody] BloodDonationCenterDTO centerDTO)
     {
-        if (centerDTO == null) return BadRequest();
+        if (centerDTO == null) return BadRequest();        
         var center = MapToBloodDonationCenter(centerDTO);        
         await _bloodDonationService.AddCenter(center);
         return CreatedAtAction(nameof(GetBloodDonationCentersById), new { id = center.Id }, center);
