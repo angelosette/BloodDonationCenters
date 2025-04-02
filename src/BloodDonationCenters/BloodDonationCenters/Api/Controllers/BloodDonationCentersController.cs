@@ -71,11 +71,19 @@ public class BloodDonationCentersController : ControllerBase
             Latitude = dto.Latitude,
             Longitude = dto.Longitude,
             Phone = dto.Phone,
+            Mobile = dto.Mobile,
             Email = dto.Email,
-            Website = dto.Website,
+            Websites = dto.Websites,
             LastUpdate = DateTime.UtcNow,
-            Inventory = dto.Inventory
-        };
+            Information = dto.Information,
+            Inventory = dto.Inventory,            
+            OperatingHours = dto.OperatingHours.Select(x => new OperatingHours
+                {
+                Day = x.Day,
+                Open = x.Open,
+                Close = x.Close
+                }).ToList()
+            };
     }
 }
 

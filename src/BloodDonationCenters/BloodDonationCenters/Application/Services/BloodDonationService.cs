@@ -54,10 +54,13 @@ public class BloodDonationService : IBloodDonationService
         exitingCenter.Latitude = center.Latitude;
         exitingCenter.Longitude = center.Longitude;
         exitingCenter.Phone = center.Phone;
+        exitingCenter.Mobile = center.Mobile;
         exitingCenter.Email = center.Email;
-        exitingCenter.Website = center.Website;
+        exitingCenter.Websites = center.Websites;
         exitingCenter.LastUpdate = DateTime.UtcNow;
         exitingCenter.Inventory = center.Inventory;
+        exitingCenter.Information = center.Information;
+        exitingCenter.OperatingHours = center.OperatingHours;
 
         await _repository.Update(exitingCenter);
     }

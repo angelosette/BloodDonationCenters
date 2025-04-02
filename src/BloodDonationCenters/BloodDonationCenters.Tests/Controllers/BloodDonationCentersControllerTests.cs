@@ -37,6 +37,23 @@ public class BloodDonationCentersControllerTests
     }
 
     [Fact]
+    public async Task GetBloodDonationCentersById_ReturnsOkResult_WhenCenterExists()
+    {
+        // Arrange
+        var centerId = Guid.NewGuid();
+        var center = new BloodDonationCenter { Id = centerId, Name = "Center 1" };
+        _mockService.Setup(service => service.GetCenterById(centerId)).ReturnsAsync(center);
+
+        // Act
+        var result = await _controller.GetBloodDonationCentersById(centerId);
+
+        // Assert
+        var okResult = Assert.IsType<OkObjectResult>(result);
+        var returnValue = Assert.IsType<BloodDonationCenter>(okResult.Value);
+        Assert.Equal(centerId, returnValue.Id);
+    }
+
+    [Fact]
     public async Task GetBloodDonationCentersById_ReturnsNotFound_WhenCenterDoesNotExist()
     {
         // Arrange

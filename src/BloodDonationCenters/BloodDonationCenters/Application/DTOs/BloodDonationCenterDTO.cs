@@ -27,12 +27,20 @@ public record BloodDonationCenterDTO
     [Phone]   
     public string? Phone { get; set; }
 
+    [Phone]
+    public string? Mobile { get; set; }
+
     [EmailAddress]
     public string? Email { get; set; }
 
-    [Url]
-    public string? Website { get; set; }
-    
+    public string? Information { get; set; }
+
+    [ValidateWebsite]
+    public Dictionary<WebSiteType, string> Websites { get; set; } = [];
+
     [ValidateInventoryStatus]
     public Dictionary<BloodType, InventoryStatus> Inventory { get; set; } = [];
+
+    [ValidateOperatingHours]
+    public List<OperatingHoursDTO> OperatingHours { get; set; } = [];
 }

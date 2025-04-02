@@ -15,9 +15,10 @@ public record BloodDonationCenter
     public double Latitude { get; set; }
     public double Longitude { get; set; }
     public string? Phone { get; set; }
-    public string? Email { get; set; }
-    public string? Website { get; set; }
+    public string? Mobile { get; set; }
+    public string? Email { get; set; }    
     public DateTime LastUpdate { get; set; }
+    public string? Information { get; set; }    
 
     [JsonIgnore]
     public string BloodInventoryJson { get; set; }
@@ -26,5 +27,25 @@ public record BloodDonationCenter
     public Dictionary<BloodType, InventoryStatus> Inventory { 
         get => JsonSerializer.Deserialize<Dictionary<BloodType, InventoryStatus>>(BloodInventoryJson ?? "{}"); 
         set => BloodInventoryJson = JsonSerializer.Serialize(value); 
-    }    
-}
+    }
+
+    [JsonIgnore]
+    public string WebsitesJson { get; set; }
+
+    [NotMapped]
+    public Dictionary<WebSiteType, string> Websites
+    {
+        get => JsonSerializer.Deserialize<Dictionary<WebSiteType, string>>(WebsitesJson ?? "{}");
+        set => WebsitesJson = JsonSerializer.Serialize(value);
+    }
+
+    [JsonIgnore]
+    public string OperatingHoursJson { get; set; }
+
+    [NotMapped]
+    public List<OperatingHours> OperatingHours
+        {
+        get => JsonSerializer.Deserialize<List<OperatingHours>>(OperatingHoursJson ?? "[]");
+        set => OperatingHoursJson = JsonSerializer.Serialize(value);
+        }
+    }

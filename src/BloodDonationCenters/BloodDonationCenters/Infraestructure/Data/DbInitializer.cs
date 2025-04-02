@@ -21,8 +21,13 @@ public class DbInitializer
                 Latitude = 40.7128,
                 Longitude = -74.0060,
                 Phone = "123-456-7890",
+                Mobile = "123-456-7890",
                 Email = "contact@centralbloodbank.com",
-                Website = "http://centralbloodbank.com",                    
+                Information = "Central Blood Bank is a non-profit organization that provides blood and blood products to hospitals in the New York area.",
+                Websites = new Dictionary<WebSiteType, string>
+                {
+                    { WebSiteType.Site, "http://centralbloodbank.com" }                    
+                },
                 Inventory = new Dictionary<BloodType, InventoryStatus>
                 {
                     { BloodType.APositive, InventoryStatus.Sufficient },
@@ -33,6 +38,39 @@ public class DbInitializer
                     { BloodType.ABNegative, InventoryStatus.Low },
                     { BloodType.OPositive, InventoryStatus.Sufficient },
                     { BloodType.ONegative, InventoryStatus.Moderate }
+                },                
+                OperatingHours = new List<OperatingHours>
+                {
+                    new OperatingHours
+                    {
+                        Day = DayOfWeek.Monday,
+                        Open = new TimeSpan(8, 0, 0),
+                        Close = new TimeSpan(17, 0, 0)
+                    },
+                    new OperatingHours
+                    {
+                        Day = DayOfWeek.Tuesday,
+                        Open = new TimeSpan(8, 0, 0),
+                        Close = new TimeSpan(17, 0, 0)
+                    },
+                    new OperatingHours
+                    {
+                        Day = DayOfWeek.Wednesday,
+                        Open = new TimeSpan(8, 0, 0),
+                        Close = new TimeSpan(17, 0, 0)
+                    },
+                    new OperatingHours
+                    {
+                        Day = DayOfWeek.Thursday,
+                        Open = new TimeSpan(8, 0, 0),
+                        Close = new TimeSpan(17, 0, 0)
+                    },
+                    new OperatingHours
+                    {
+                        Day = DayOfWeek.Friday,
+                        Open = new TimeSpan(8, 0, 0),
+                        Close = new TimeSpan(17, 0, 0)
+                    }
                 },
                 LastUpdate = DateTime.UtcNow                
             },
@@ -46,8 +84,13 @@ public class DbInitializer
                 Latitude = 34.0522,
                 Longitude = -118.2437,                    
                 Phone = "987-654-3210",
-                Email = "info@westsidebloodcenter.com",
-                Website = "http://westsidebloodcenter.com",                    
+                Mobile = "987-654-3210",
+                Information = "Westside Blood Center is a non-profit organization that provides blood and blood products to hospitals in the Los Angeles area.",
+                Email = "info@westsidebloodcenter.com",                
+                Websites = new Dictionary<WebSiteType, string>
+                {
+                    { WebSiteType.Site, "http://westsidebloodcenter.com" }
+                },
                 Inventory = new Dictionary<BloodType, InventoryStatus>
                 {
                     { BloodType.APositive, InventoryStatus.Low },
@@ -58,6 +101,39 @@ public class DbInitializer
                     { BloodType.ABNegative, InventoryStatus.Surplus },
                     { BloodType.OPositive, InventoryStatus.Moderate },
                     { BloodType.ONegative, InventoryStatus.Sufficient }
+                },
+                OperatingHours = new List<OperatingHours>
+                {
+                    new OperatingHours
+                    {
+                        Day = DayOfWeek.Monday,
+                        Open = new TimeSpan(9, 0, 0),
+                        Close = new TimeSpan(18, 0, 0)
+                    },
+                    new OperatingHours
+                    {
+                        Day = DayOfWeek.Tuesday,
+                        Open = new TimeSpan(9, 0, 0),
+                        Close = new TimeSpan(18, 0, 0)
+                    },
+                    new OperatingHours
+                    {
+                        Day = DayOfWeek.Wednesday,
+                        Open = new TimeSpan(9, 0, 0),
+                        Close = new TimeSpan(18, 0, 0)
+                    },
+                    new OperatingHours
+                    {
+                        Day = DayOfWeek.Thursday,
+                        Open = new TimeSpan(9, 0, 0),
+                        Close = new TimeSpan(18, 0, 0)
+                    },
+                    new OperatingHours
+                    {
+                        Day = DayOfWeek.Friday,
+                        Open = new TimeSpan(9, 0, 0),
+                        Close = new TimeSpan(18, 0, 0)
+                    }
                 },
                 LastUpdate = DateTime.UtcNow                    
             }
