@@ -4,7 +4,7 @@ namespace BloodDonationCenters.Application.Interfaces;
 
 public interface IBloodDonationService
 {
-    Task<IEnumerable<BloodDonationCenter>> GetAllCenters(string? city, string? country);
+    Task<IEnumerable<BloodDonationCenter>> GetAllCenters(string? country, string? city);
     Task<BloodDonationCenter> GetCenterById(Guid id);
     Task AddCenter(BloodDonationCenter center);
     Task UpdateCenter(BloodDonationCenter center);

@@ -13,7 +13,7 @@ public class DbInitializer
         {
             new BloodDonationCenter
             {
-                Id = Guid.NewGuid(),
+                Id = Guid.Parse("8cd5b775-225e-4f8c-851c-33d6e2ee3bd9"),
                 Name = "Central Blood Bank",
                 Country = "USA",
                 City = "New York",
@@ -76,7 +76,7 @@ public class DbInitializer
             },
             new BloodDonationCenter
             {
-                Id = Guid.NewGuid(),
+                Id = Guid.Parse("cc49b6b4-3aac-4dc9-8e08-1282c4142f2d"),
                 Name = "Westside Blood Center",
                 Country = "USA",
                 City = "Los Angeles",

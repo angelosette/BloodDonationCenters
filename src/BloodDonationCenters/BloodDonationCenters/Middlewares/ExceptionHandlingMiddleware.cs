@@ -1,4 +1,7 @@
-﻿namespace BloodDonationCenters.Middlewares;
+﻿using BloodDonationCenters.Application.Common;
+using Microsoft.AspNetCore.Http;
+
+namespace BloodDonationCenters.Middlewares;
 
 public class ExceptionHandlingMiddleware
 {
@@ -17,13 +20,15 @@ public class ExceptionHandlingMiddleware
         }
         catch (KeyNotFoundException ex)
         {
-            context.Response.StatusCode = 404;
-            await context.Response.WriteAsync(ex.Message);
-            }
+            var result = ResultData<Exception>.Error(ex.Message);
+            context.Response.StatusCode = StatusCodes.Status404NotFound;
+            await context.Response.WriteAsJsonAsync(result);
+        }
         catch (Exception ex)
-        {
-            context.Response.StatusCode = 500;
-            await context.Response.WriteAsync("An unexpected error occurred.");
+        {            
+            var result = ResultData<Exception>.Error("An unexpected error occurred");
+            context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+            await context.Response.WriteAsJsonAsync(result);
         }
     }
 }

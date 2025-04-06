@@ -1,0 +1,130 @@
+﻿@BloodDonationCenters_HostAddress = https://localhost:7266
+
+GET {{BloodDonationCenters_HostAddress}}/BloodDonationCenters
+###
+
+GET {{BloodDonationCenters_HostAddress}}/BloodDonationCenters?city=New%20York
+###
+
+GET {{BloodDonationCenters_HostAddress}}/BloodDonationCenters/cc49b6b4-3aac-4dc9-8e08-1282c4142f2d
+###
+
+POST {{BloodDonationCenters_HostAddress}}/BloodDonationCenters
+Content-Type: application/json
+
+{
+  "name": "Central Blood Bank",
+  "country": "USA",
+  "city": "New York",
+  "address": "123 Main St",
+  "latitude": 40.7128,
+  "longitude": -74.006,
+  "phone": "123-456-7890",
+  "mobile": "123-456-7890",
+  "email": "contact@centralbloodbank.com",
+  "lastUpdate": "2025-04-06T17:43:18.9425041Z",
+  "information": "Central Blood Bank is a non-profit organization that provides blood and blood products to hospitals in the New York area.",
+  "inventory": {
+    "APositive": 3,
+    "ANegative": 2,
+    "BPositive": 1,
+    "BNegative": 0,
+    "ABPositive": 4,
+    "ABNegative": 1,
+    "OPositive": 3,
+    "ONegative": 2
+  },
+  "websites": {
+    "Site": "http://centralbloodbank.com"
+  },
+  "operatingHours": [
+    {
+      "day": 1,
+      "open": "08:00:00",
+      "close": "17:00:00"
+    },
+    {
+      "day": 2,
+      "open": "08:00:00",
+      "close": "17:00:00"
+    },
+    {
+      "day": 3,
+      "open": "08:00:00",
+      "close": "17:00:00"
+    },
+    {
+      "day": 4,
+      "open": "08:00:00",
+      "close": "17:00:00"
+    },
+    {
+      "day": 5,
+      "open": "08:00:00",
+      "close": "17:00:00"
+    }
+  ]
+}
+###
+
+PUT {{BloodDonationCenters_HostAddress}}/BloodDonationCenters/cc49b6b4-3aac-4dc9-8e08-1282c4142f2d
+Content-Type: application/json
+
+{
+  "name": "Central Blood Bank",
+  "country": "USA",
+  "city": "New York",
+  "address": "123 Main St",
+  "latitude": 40.7128,
+  "longitude": -74.006,
+  "phone": "123-456-7890",
+  "mobile": "123-456-7890",
+  "email": "contact@centralbloodbank.com",
+  "lastUpdate": "2025-04-06T17:43:18.9425041Z",
+  "information": "Central Blood Bank is a non-profit organization that provides blood and blood products to hospitals in the New York area.",
+  "inventory": {
+    "APositive": 3,
+    "ANegative": 2,
+    "BPositive": 1,
+    "BNegative": 0,
+    "ABPositive": 4,
+    "ABNegative": 1,
+    "OPositive": 3,
+    "ONegative": 2
+  },
+  "websites": {
+    "Site": "http://centralbloodbank.com"
+  },
+  "operatingHours": [
+    {
+      "day": 1,
+      "open": "08:00:00",
+      "close": "17:00:00"
+    },
+    {
+      "day": 2,
+      "open": "08:00:00",
+      "close": "17:00:00"
+    },
+    {
+      "day": 3,
+      "open": "08:00:00",
+      "close": "17:00:00"
+    },
+    {
+      "day": 4,
+      "open": "08:00:00",
+      "close": "17:00:00"
+    },
+    {
+      "day": 5,
+      "open": "08:00:00",
+      "close": "17:00:00"
+    }
+  ]
+}
+###
+
+      
+DELETE {{BloodDonationCenters_HostAddress}}/BloodDonationCenters/cc49b6b4-3aac-4dc9-8e08-1282c4142f2d
+###

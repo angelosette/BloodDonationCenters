@@ -1,3 +1,4 @@
+using BloodDonationCenters.Api.Endpoints;
 using BloodDonationCenters.Application.Interfaces;
 using BloodDonationCenters.Application.Services;
 using BloodDonationCenters.Domain.Entities;
@@ -14,31 +15,22 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IRepository<BloodDonationCenter>, Repository<BloodDonationCenter>>();
 builder.Services.AddScoped<IBloodDonationService, BloodDonationService>();
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-using (var scope = app.Services.CreateScope())
-{
-    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    context.Database.EnsureCreated();
-    DbInitializer.Seed(context);
+{ 
+    using (var scope = app.Services.CreateScope())
+    {
+        var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        context.Database.EnsureCreated();
+        DbInitializer.Seed(context);
+    }
 }
 
 app.UseHttpsRedirection();
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 
-app.UseAuthorization();
-
-app.MapControllers();
+app.AddBloodDonationCentersEndpoints();
 
 app.Run();
